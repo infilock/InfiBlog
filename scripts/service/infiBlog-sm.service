@@ -1,0 +1,14 @@
+[Unit]
+Description=InfiBlog SocialMedia
+After=network.target
+
+[Service]
+User=root
+Type=simple
+EnvironmentFile=/usr/local/bin/infiBlog/.env.sm
+ExecStart=/usr/local/bin/infiBlog/sm_job
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

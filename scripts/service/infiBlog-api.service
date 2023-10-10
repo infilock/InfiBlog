@@ -1,0 +1,14 @@
+[Unit]
+Description=InfiBlog API
+After=network.target
+
+[Service]
+User=root
+Type=simple
+EnvironmentFile=/usr/local/bin/infiBlog/.env.api
+ExecStart=/usr/local/bin/infiBlog/api
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

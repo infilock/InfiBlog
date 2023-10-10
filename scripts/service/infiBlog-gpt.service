@@ -1,0 +1,14 @@
+[Unit]
+Description=InfiBlog GPT
+After=network.target
+
+[Service]
+User=root
+Type=simple
+EnvironmentFile=/usr/local/bin/infiBlog/.env.gpt
+ExecStart=/usr/local/bin/infiBlog/gpt_job
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  postgres_appx:
+    image: postgres:${POSTGRES_TAG_IMAGE}
+    container_name: psg_demox
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    ports:
+      - "5432:5432"
+    volumes:
+      - psgx:/var/lib/postgresql/data
+  pgadmin_appx:
+    image: dpage/pgadmin4:${PGADMIN_TAG_IMAGE}
+    container_name: pgadmin_demox
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
+    depends_on:
+      - postgres_appx
+    ports:
+      - "5050:80"
+    volumes:
+      - ./pgadmin/data:/var/lib/pgadmin4/storage
+
+volumes:
+  psgx:

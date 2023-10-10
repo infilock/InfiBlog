@@ -1,0 +1,5 @@
+development:
+  dialect: postgres
+  datasource: host=127.0.0.1 user=chatgpt password=chatgptpw dbname=chatgptdb sslmode=disable
+  dir: .
+  table: migrations
