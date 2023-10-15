@@ -1,0 +1,7 @@
+openapi: 3.0.1
+info:
+  title: InfiBlog Service
+  description: InfiBlog Service API
+  version: 0.0.1
+servers:
+  - url:

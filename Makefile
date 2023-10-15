@@ -14,15 +14,15 @@ api: ## run api
 
 .PHONY: build-job-gpt
 build-job-gpt: ## run job crawler from chat gpt
-	CGO_ENABLED=1 go build -v -o $(ROOT)/bin/gpt_job -ldflags="-s -w" $(ROOT)/cmd/gpt-job/*.go
+	CGO_ENABLED=1 go build -v -o $(ROOT)/bin/chatgpt -ldflags="-s -w" $(ROOT)/cmd/job/chatgpt/*.go
 
 .PHONY: build-job-wp
 build-job-wp: ## run job send article to blog post
-	CGO_ENABLED=1 go build -v -o $(ROOT)/bin/wp_job -ldflags="-s -w" $(ROOT)/cmd/wp-job/*.go
+	CGO_ENABLED=1 go build -v -o $(ROOT)/bin/wordpress -ldflags="-s -w" $(ROOT)/cmd/job/wordpress/*.go
 
 .PHONY: build-job-sm
 build-job-sm: ## run job send post to social media
-	CGO_ENABLED=1 go build -v -o $(ROOT)/bin/sm_job -ldflags="-s -w" $(ROOT)/cmd/sm-job/*.go
+	CGO_ENABLED=1 go build -v -o $(ROOT)/bin/socialmedia -ldflags="-s -w" $(ROOT)/cmd/job/socialmedia/*.go
 
 .which-go:
 	@which go > /dev/null || (echo "install go from https://golang.org/dl/" & exit 1)
@@ -35,4 +35,17 @@ lint: .which-lint
 
 clean: # run make format and make lint
 	fieldalignment -fix ./...
+	gosec ./...
 	golangci-lint run -v
+
+.PHONY: alignment
+alignment: ## Analyzer that detects structs
+	fieldalignment -fix ./...
+
+.PHONY: gosec
+gosec: ## check security golang code
+	gosec ./...
+
+.PHONY: run
+run: ## run application
+	godotenv -f .env go run ./cmd/api/*.go
