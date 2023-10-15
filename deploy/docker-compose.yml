@@ -1,8 +1,8 @@
 version: "3.9"
 services:
-  postgres_appx:
+  postgres_infiblog:
     image: postgres:${POSTGRES_TAG_IMAGE}
-    container_name: psg_demox
+    container_name: psg_infiblog
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -10,19 +10,19 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - psgx:/var/lib/postgresql/data
-  pgadmin_appx:
+      - vm_infiblog:/var/lib/postgresql/data
+  pgadmin_infiblog:
     image: dpage/pgadmin4:${PGADMIN_TAG_IMAGE}
-    container_name: pgadmin_demox
+    container_name: pga_infiblog
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD}
     depends_on:
-      - postgres_appx
+      - postgres_infiblog
     ports:
       - "5050:80"
     volumes:
       - ./pgadmin/data:/var/lib/pgadmin4/storage
 
 volumes:
-  psgx:
+  vm_infiblog:
