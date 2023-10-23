@@ -25,3 +25,6 @@ go.work
 
 deploy/pgadmin/data
 /cmd/wp-job/picture
+deploy/.env.dev
+deploy/.env.prod
+/cmd/api/.env

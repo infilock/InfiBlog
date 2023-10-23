@@ -6,7 +6,7 @@ After=network.target
 User=root
 Type=simple
 EnvironmentFile=/usr/local/bin/infiBlog/.env.wp
-ExecStart=/usr/local/bin/infiBlog/wp_job
+ExecStart=/usr/local/bin/infiBlog/wordpress
 Restart=on-failure
 RestartSec=10
 

@@ -6,7 +6,7 @@ After=network.target
 User=root
 Type=simple
 EnvironmentFile=/usr/local/bin/infiBlog/.env.sm
-ExecStart=/usr/local/bin/infiBlog/sm_job
+ExecStart=/usr/local/bin/infiBlog/socialmedia
 Restart=on-failure
 RestartSec=10
 

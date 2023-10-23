@@ -2,23 +2,22 @@ package question
 
 import (
 	"context"
-	repo "crawler/internal/repository/postgresql/question"
 	"github.com/pkg/errors"
 	"github.com/xuri/excelize/v2"
 	"mime/multipart"
 )
 
 type service struct {
-	repo repo.Repository
+	repo Repository
 }
 
-func NewService(repo repo.Repository) Service {
+func NewService(repo Repository) Service {
 	return &service{
 		repo: repo,
 	}
 }
 
-func (svc *service) ListQuestionsByStatus(ctx context.Context, status string) ([]repo.Entity, error) {
+func (svc *service) ListQuestionsByStatus(ctx context.Context, status string) ([]*Entity, error) {
 	res, err := svc.repo.ListStatus(ctx, status)
 	if err != nil {
 		return nil, errors.Wrap(err, "error on list question service:")
@@ -27,7 +26,7 @@ func (svc *service) ListQuestionsByStatus(ctx context.Context, status string) ([
 	return res, nil
 }
 
-func (svc *service) ListQuestions(ctx context.Context) ([]repo.Entity, error) {
+func (svc *service) ListQuestions(ctx context.Context) ([]*Entity, error) {
 	res, err := svc.repo.Lists(ctx)
 	if err != nil {
 		return nil, errors.Wrap(err, "error on list question service:")
@@ -52,7 +51,7 @@ func (svc *service) CreateQuestion(ctx context.Context, file multipart.File, tag
 			continue
 		}
 
-		m := repo.Entity{
+		m := Entity{
 			Question:   row[0],
 			Rule:       row[1],
 			CategoryID: categoryID,
