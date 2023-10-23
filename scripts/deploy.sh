@@ -3,7 +3,7 @@ while true; do
   case "$1" in
     -ud|--up-dev)
         sleep 2
-        printf '\033[0;34m ******** setup on  development ********\n \033[0m'
+        printf '\033[0;34m ******** setup on development ********\n \033[0m'
         docker-compose --env-file ../deploy/.env.dev -f ../deploy/docker-compose.yml up --build --detach
 
         sleep 1

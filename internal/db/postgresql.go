@@ -16,7 +16,7 @@ import (
 func GetPsql(config *config.Psql) (*sql.DB, error) {
 	db, err := sql.Open(config.Driver, config.DSN())
 	if err != nil {
-		return nil, err
+		return nil, err //todo wrapcheck
 	}
 
 	if errPing := db.PingContext(context.Background()); errPing != nil {

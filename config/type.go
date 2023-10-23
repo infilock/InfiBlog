@@ -41,7 +41,7 @@ const (
 	UploadPath Env = "UPLOAD_PATH"
 )
 
-// wordpress
+// WordPress
 const (
 	UrlBlogPost               Env = "URL_BLOG_POST"
 	WordPressUsername         Env = "WORDPRESS_USERNAME"

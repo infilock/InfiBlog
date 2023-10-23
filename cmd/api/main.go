@@ -24,12 +24,10 @@ import (
 )
 
 func main() {
-	//postgresql := config.GetPsql()
-	//defer func() { _ = postgresql.Close() }
-
 	dbCfg, err := config.GetDBConfig()
 	if err != nil {
 		log.Fatal("unable to get db config", err)
+
 		return
 	}
 
