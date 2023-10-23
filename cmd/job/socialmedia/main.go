@@ -27,12 +27,10 @@ func main() {
 	_, errJobOne := scheduler.Every(1).Day().At(config.TwitterJobTime.Get()).Do(func() {
 		log.Println("- start job Twitter ")
 
-		//postgresql := config.GetPsql()
-		//defer func() { _ = postgresql.Close() }()
-
 		dbCfg, err := config.GetDBConfig()
 		if err != nil {
 			log.Fatal("unable to get db config", err)
+
 			return
 		}
 
