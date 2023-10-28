@@ -29,12 +29,10 @@ func main() {
 	_, errJobOne := scheduler.Every(1).Day().At(config.GptJobTime.Get()).Do(func() {
 		log.Println("- start job ChatGPT ")
 
-		//postgresql := config.GetPsql()
-		//defer func() { _ = postgresql.Close() }()
-
 		dbCfg, err := config.GetDBConfig()
 		if err != nil {
 			log.Fatal("unable to get db config", err)
+
 			return
 		}
 
@@ -95,6 +93,7 @@ func main() {
 
 			if errQuestion := rq.UpdateQuestionStatus(context.Background(), res[i].ID); errQuestion != nil {
 				log.Println(errQuestion)
+
 				continue
 			}
 			//end: article

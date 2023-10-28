@@ -18,7 +18,6 @@ func listEndPoints(route *mux.Route, router *mux.Router, ancestors []*mux.Route)
 }
 
 func (h *handler) registerRoutes() {
-
 	h.router.Methods(http.MethodGet).Path("/articles").HandlerFunc(h.articleCtr.HandlerListArticles())
 
 	h.router.Methods(http.MethodPost).Path("/question").HandlerFunc(h.questionCtr.HandlerUploadQuestion())

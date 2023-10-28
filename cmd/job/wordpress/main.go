@@ -37,12 +37,10 @@ func main() {
 	_, errJobOne := scheduler.Every(1).Day().At(config.WordPressJobTime.Get()).Do(func() {
 		log.Println("- start job Wordpress ")
 
-		//postgresql := config.GetPsql()
-		//defer func() { _ = postgresql.Close() }()
-
 		dbCfg, err := config.GetDBConfig()
 		if err != nil {
 			log.Fatal("unable to get db config", err)
+
 			return
 		}
 
@@ -140,6 +138,7 @@ func main() {
 				if strings.Contains(res.Status, "201") {
 					if errUpdate := articleRepo.UpdateArticleStatus(context.Background(), items[i].ID); errUpdate != nil {
 						log.Println(errUpdate)
+
 						continue
 					}
 				}
@@ -220,6 +219,7 @@ func main() {
 			if strings.Contains(res.Status, "201") {
 				if errUpdate := articleRepo.UpdateArticleStatus(context.Background(), items[i].ID); errUpdate != nil {
 					log.Println(errUpdate)
+
 					continue
 				}
 			}

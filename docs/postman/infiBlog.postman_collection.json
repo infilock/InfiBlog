@@ -1,0 +1,351 @@
+{
+	"info": {
+		"_postman_id": "dbc81e86-7dc5-4df5-b7d1-a341125b5b3d",
+		"name": "infiBlog",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22209300"
+	},
+	"item": [
+		{
+			"name": "List articles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/articles?status=1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"articles"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List articles",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/articles",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"articles"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"id\": \"1\",\n            \"question_id\": \"5\",\n            \"created_at\": \"2023-05-12T11:15:17.413858Z\",\n            \"title\": \"How Blockchain Can Prevent Device Tampering\",\n            \"content\": \"In today's world, where technology is advancing at an unprecedented pace, the security of devices has become a major concern. With the rise of the Internet of Things (IoT), the number of connected devices has increased significantly, making them vulnerable to cyber-attacks. One of the most significant threats to device security is tampering. However, blockchain technology can provide a solution to this problem.\\n\\nDevice tampering is a process where an attacker gains unauthorized access to a device and modifies its functionality or data. This can be done by physically altering the device or by exploiting vulnerabilities in its software.\",\n            \"status\": \"publish\"\n        },\n        {\n            \"id\": \"2\",\n            \"question_id\": \"9\",\n            \"created_at\": \"2023-05-12T11:15:17.413858Z\",\n            \"title\": \"Blockchain Prevents Business Email Compromise Attacks\",\n            \"content\": \"making them vulnerable to cyber-attacks. One of the most significant threats to device security is tampering. However, blockchain technology can provide a solution to this problem.\\n\\nDevice tampering is a process where an attacker gains unauthorized access to a device and modifies its functionality or data. This can be done by physically altering the device or by exploiting vulnerabilities in its software.\",\n            \"status\": \"draft\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "List articles draft",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/articles?status=draft",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"articles"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "draft"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"id\": \"2\",\n            \"question_id\": \"9\",\n            \"created_at\": \"2023-05-12T11:15:17.413858Z\",\n            \"title\": \"Blockchain Prevents Business Email Compromise Attacks\",\n            \"content\": \"making them vulnerable to cyber-attacks. One of the most significant threats to device security is tampering. However, blockchain technology can provide a solution to this problem.\\n\\nDevice tampering is a process where an attacker gains unauthorized access to a device and modifies its functionality or data. This can be done by physically altering the device or by exploiting vulnerabilities in its software.\",\n            \"status\": \"draft\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "List articles publish",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/articlesstatus=publish",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"articlesstatus=publish"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"id\": \"1\",\n            \"question_id\": \"5\",\n            \"created_at\": \"2023-05-12T11:15:17.413858Z\",\n            \"title\": \"How Blockchain Can Prevent Device Tampering\",\n            \"content\": \"In today's world, where technology is advancing at an unprecedented pace, the security of devices has become a major concern. With the rise of the Internet of Things (IoT), the number of connected devices has increased significantly, making them vulnerable to cyber-attacks. One of the most significant threats to device security is tampering. However, blockchain technology can provide a solution to this problem.\\n\\nDevice tampering is a process where an attacker gains unauthorized access to a device and modifies its functionality or data. This can be done by physically altering the device or by exploiting vulnerabilities in its software.\",\n            \"status\": \"publish\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Upload Question",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/bardia/Music/model-gpt-question.xlsx"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/question?tag_id=1,16&category_id=5,6",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"question"
+					],
+					"query": [
+						{
+							"key": "tag_id",
+							"value": "1,16"
+						},
+						{
+							"key": "category_id",
+							"value": "5,6"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Question",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/home/bardia/Music/shop.txt"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/questions?status=1",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"questions"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "List Question",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/bardia/Music/shop.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/questions",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"questions"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"id\": \"4\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Blockchain can enable access control mechanisms\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"0\"\n        },\n        {\n            \"id\": \"5\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Unauthorized access to ICS devices\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"1\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "List Question status 1",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/bardia/Music/shop.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/questions?status=1",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"questions"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"id\": \"4\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Blockchain can enable access control mechanisms\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"1\"\n        }\n    ]\n}"
+				},
+				{
+					"name": "List Question status 0",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/home/bardia/Music/shop.txt"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{URL}}/questions?status=0",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"questions"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"results\": [\n        {\n            \"id\": \"4\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Blockchain can enable access control mechanisms\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"0\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "127.0.0.1:4030",
+			"type": "string"
+		}
+	]
+}
