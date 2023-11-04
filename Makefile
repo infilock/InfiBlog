@@ -46,6 +46,18 @@ alignment: ## Analyzer that detects structs
 gosec: ## check security golang code
 	gosec ./...
 
-.PHONY: run
-run: ## run application
+.PHONY: run-api
+run-api: ## run api application
 	godotenv -f .env go run ./cmd/api/*.go
+
+.PHONY: run-job-sm
+run-job-sm: ## run job social media
+	godotenv -f .env go run ./cmd/job/socialmedia/*.go
+
+.PHONY: run-job-wp
+run-job-wp: ## run job wordpress
+	godotenv -f .env go run ./cmd/job/wordpress/*.go
+
+.PHONY: run-job-gpt
+run-job-gpt: ## run job chat gpt
+	godotenv -f .env go run ./cmd/job/chatgpt/*.go
