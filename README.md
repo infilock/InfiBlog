@@ -41,11 +41,19 @@ sh deploy.sh -ud
 
 **note:** All the created binaries are stored in path `/bin`
 
-- **Step 3:** Run Jobs
+- **Step 3:** Prepare Jobs
 ```
  Copy the service file from path `/scripts/services/infiBlog.service` to path `/etc/systemd/system`
  Move the .env file to `/usr/local/bin/infiBlog`
  Move the binary file from path `/bin/` to path `/usr/local/bin/infiBlog`
+```
+
+- **Step 3:** Run jobs
+```
+systemctl start infiBlog-api.service
+systemctl start infiBlog-gpt.service
+systemctl start infiBlog-sm.service
+systemctl start infiBlog-wp.service
 ```
 
 
