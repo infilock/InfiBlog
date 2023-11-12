@@ -48,7 +48,7 @@ sh deploy.sh -ud
  Move the binary file from path `/bin/` to path `/usr/local/bin/infiBlog`
 ```
 
-- **Step 3:** Run jobs
+- **Step 4:** Run jobs
 ```
 systemctl start infiBlog-api.service
 systemctl start infiBlog-gpt.service
