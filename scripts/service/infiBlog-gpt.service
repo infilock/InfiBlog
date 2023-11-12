@@ -5,7 +5,7 @@ After=network.target
 [Service]
 User=root
 Type=simple
-EnvironmentFile=/usr/local/bin/infiBlog/.env.gpt
+EnvironmentFile=/usr/local/bin/infiBlog/.env
 ExecStart=/usr/local/bin/infiBlog/chatgpt
 Restart=on-failure
 RestartSec=10
