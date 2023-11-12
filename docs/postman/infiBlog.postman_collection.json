@@ -96,7 +96,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/articlesstatus=publish",
+							"raw": "{{URL}}/articles?status=publish",
 							"host": [
 								"{{URL}}"
 							],
