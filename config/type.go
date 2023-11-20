@@ -21,7 +21,6 @@ const (
 // chat gpt
 const (
 	GptAPIKey      Env = "GPT_API_KEY"
-	GptOrgID       Env = "GPT_ORG_ID"
 	GptJobTime     Env = "GPT_JOB_TIME"
 	GptJobLocation Env = "GPT_JOB_LOCATION"
 )
@@ -37,8 +36,8 @@ const (
 
 // config app
 const (
-	PortApp    Env = "APP_PORT"
-	UploadPath Env = "UPLOAD_PATH"
+	PortApp Env = "APP_PORT"
+	//UploadPath Env = "UPLOAD_PATH"
 )
 
 // WordPress
@@ -47,15 +46,9 @@ const (
 	WordPressUsername         Env = "WORDPRESS_USERNAME"
 	WordPressPassword         Env = "WORDPRESS_PASSWORD"
 	WordPressAPICreateArticle Env = "WORDPRESS_API_CREATE_ARTICLE"
-	WordPressAPICreateMedia   Env = "WORDPRESS_API_CREATE_MEDIA"
-	WordPressJobTime          Env = "WORDPRESS_JOB_TIME"
-	WordPressJobLocation      Env = "WORDPRESS_JOB_LOCATION"
-)
-
-// google search engine
-const (
-	GoogleAPIKEY   Env = "GOOGLE_API_KEY"
-	GoogleSearchID Env = "GOOGLE_SEARCH_ID"
+	//WordPressAPICreateMedia   Env = "WORDPRESS_API_CREATE_MEDIA"
+	WordPressJobTime     Env = "WORDPRESS_JOB_TIME"
+	WordPressJobLocation Env = "WORDPRESS_JOB_LOCATION"
 )
 
 type Psql struct {
