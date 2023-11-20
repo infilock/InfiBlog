@@ -8,7 +8,6 @@ import (
 	"github.com/go-co-op/gocron"
 	"github.com/gosimple/slug"
 	"github.com/infilock/InfiBlog/config"
-	"github.com/infilock/InfiBlog/internal/db"
 	"github.com/infilock/InfiBlog/internal/repository/postgresql/pool"
 	_ "github.com/lib/pq" // import postgres driver
 	"github.com/pkg/errors"
@@ -38,14 +37,9 @@ func main() {
 			return
 		}
 
-		database, err := db.GetPsql(dbCfg)
+		database := config.ConnectionToPSQL(dbCfg)
 		if err != nil {
 			log.Fatal("unable to create database client", err)
-		}
-
-		// migrate tables.
-		if errUp := db.MigrateUp(dbCfg); errUp != nil {
-			log.Println("error while migrating up", errUp)
 		}
 
 		articleRepo := pool.NewArticleRepository(database)

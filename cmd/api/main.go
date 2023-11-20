@@ -5,7 +5,6 @@ import (
 	"errors"
 	"github.com/infilock/InfiBlog/config"
 	"github.com/infilock/InfiBlog/internal/api"
-	"github.com/infilock/InfiBlog/internal/db"
 	"github.com/infilock/InfiBlog/internal/repository/postgresql/pool"
 	"github.com/infilock/InfiBlog/internal/service/article"
 	"github.com/infilock/InfiBlog/internal/service/question"
@@ -26,19 +25,14 @@ import (
 func main() {
 	dbCfg, err := config.GetDBConfig()
 	if err != nil {
-		log.Fatal("unable to get db config", err)
+		log.Fatal("unable to get db config: ", err)
 
 		return
 	}
 
-	database, err := db.GetPsql(dbCfg)
+	database := config.ConnectionToPSQL(dbCfg)
 	if err != nil {
-		log.Fatal("unable to create database client", err)
-	}
-
-	// migrate tables.
-	if errUp := db.MigrateUp(dbCfg); errUp != nil {
-		log.Println("error while migrating up", errUp)
+		log.Fatal("unable to create database client: ", err)
 	}
 
 	// define repository
@@ -57,7 +51,7 @@ func main() {
 
 	// A Server defines parameters for running an HTTP server. The zero value for Server is a valid configuration.
 	collectionServer := &http.Server{
-		Addr:         config.PortApp.Get(),
+		Addr:         "4030",
 		WriteTimeout: time.Second * 15, // riteTimeout is the maximum duration before timing out writes of the response.
 		ReadTimeout:  time.Second * 15, // eadTimeout is the maximum duration for reading the entire request, including the body.
 		IdleTimeout:  time.Second * 60, // dleTimeout is the maximum amount of time to wait for the next request when keep-alives are enabled.
@@ -65,7 +59,7 @@ func main() {
 	}
 
 	go func() {
-		log.Printf("Start application on listening: %s", config.PortApp.Get())
+		log.Printf("Start application on listening: 4030")
 
 		if errServe := collectionServer.ListenAndServe(); errServe != nil {
 			if !errors.Is(errServe, http.ErrServerClosed) {
