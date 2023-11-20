@@ -1,9 +1,9 @@
 package config
 
 import (
+	"context"
+	"database/sql"
 	"fmt"
-	_ "github.com/golang-migrate/migrate/v4/database/postgres"
-	_ "github.com/golang-migrate/migrate/v4/source/file"
 )
 
 func (c *Psql) DSN() string {
@@ -11,19 +11,32 @@ func (c *Psql) DSN() string {
 		c.Host, c.Port, c.User, c.Pass, c.Name)
 }
 
-func (c *Psql) URL() string {
+func (c *Psql) URI() string {
 	return fmt.Sprintf("%s://%s:%s@%s:%s/%s?sslmode=disable",
 		c.Driver, c.User, c.Pass, c.Host, c.Port, c.Name)
 }
 
 func GetDBConfig() (*Psql, error) {
 	return &Psql{
-		Driver:       "postgres",
-		MigrationDir: PsqlMigrationDir.Get(),
-		Host:         PsqlHost.Get(),
-		Port:         PsqlPort.Get(),
-		User:         PsqlUser.Get(),
-		Pass:         PsqlPass.Get(),
-		Name:         PsqlDB.Get(),
+		Driver: "postgres",
+		Host:   "127.0.0.1",
+		Port:   "5432",
+		User:   "infiblog",
+		Pass:   "infiblogpw",
+		Name:   "infiblogdb",
 	}, nil
+}
+
+// ConnectionToPSQL get information config postgresql from vault secret dynamic.
+func ConnectionToPSQL(cfg *Psql) *sql.DB {
+	db, err := sql.Open(cfg.Driver, cfg.DSN())
+	if err != nil {
+		panic(err)
+	}
+
+	if errPing := db.PingContext(context.Background()); errPing != nil {
+		panic(errPing)
+	}
+
+	return db
 }

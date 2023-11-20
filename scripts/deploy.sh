@@ -25,7 +25,7 @@ while true; do
             docker-compose --env-file ../deploy/.env.dev -f ../deploy/docker-compose.yml down
             sleep 3
             printf '\033[0;34m ******** remove volume dev ********\n \033[0m'
-            docker volume rm deploy_psg
+            docker volume rm deploy_vm_infiblog
           exit 0
           ;;
         -up|--up-prod)

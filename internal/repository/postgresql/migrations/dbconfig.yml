@@ -1,5 +1,5 @@
 development:
   dialect: postgres
-  datasource: host=127.0.0.1 user=chatgpt password=chatgptpw dbname=chatgptdb sslmode=disable
+  datasource: postgres://infiblog:infiblogpw@127.0.0.1:5432/infiblogdb?sslmode=disable
   dir: .
   table: migrations

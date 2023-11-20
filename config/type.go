@@ -9,14 +9,13 @@ func (e Env) Get() string {
 }
 
 // postgresql
-const (
-	PsqlHost         Env = "PSQL_HOST"
-	PsqlPort         Env = "PSQL_PORT"
-	PsqlUser         Env = "PSQL_USER"
-	PsqlPass         Env = "PSQL_PASS"
-	PsqlDB           Env = "PSQL_DB"
-	PsqlMigrationDir Env = "PSQL_MIGRATION_DIR"
-)
+//const (
+//	PsqlHost Env = "PSQL_HOST"
+//	PsqlPort Env = "PSQL_PORT"
+//	PsqlUser Env = "PSQL_USER"
+//	PsqlPass Env = "PSQL_PASS"
+//	PsqlDB   Env = "PSQL_DB"
+//)
 
 // chat gpt
 const (
@@ -34,12 +33,6 @@ const (
 	TwitterJobLocation      Env = "TWITTER_JOB_LOCATION"
 )
 
-// config app
-const (
-	PortApp Env = "APP_PORT"
-	//UploadPath Env = "UPLOAD_PATH"
-)
-
 // WordPress
 const (
 	UrlBlogPost               Env = "URL_BLOG_POST"
@@ -52,11 +45,10 @@ const (
 )
 
 type Psql struct {
-	Driver       string
-	MigrationDir string
-	Host         string
-	Port         string
-	User         string
-	Pass         string
-	Name         string
+	Driver string
+	Host   string
+	Port   string
+	User   string
+	Pass   string
+	Name   string
 }
