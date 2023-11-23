@@ -23,6 +23,8 @@ func (h *handler) registerRoutes() {
 	h.router.Methods(http.MethodPost).Path("/question").HandlerFunc(h.questionCtr.HandlerUploadQuestion())
 	h.router.Methods(http.MethodGet).Path("/questions").HandlerFunc(h.questionCtr.HandlerListQuestions())
 
+	h.router.Methods(http.MethodGet).Path("/wp/categories").HandlerFunc(h.wordpressCtr.HandlerListCategories())
+
 	if err := h.router.Walk(listEndPoints); err != nil {
 		log.Fatal(err)
 	}
