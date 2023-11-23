@@ -5,27 +5,31 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/infilock/InfiBlog/internal/rest/article"
 	"github.com/infilock/InfiBlog/internal/rest/question"
+	"github.com/infilock/InfiBlog/internal/rest/wordpress"
 	"log"
 	"net/http"
 	"os"
 )
 
 type handler struct {
-	router      *mux.Router
-	articleCtr  article.Contract
-	questionCtr question.Contract
+	router       *mux.Router
+	articleCtr   article.Contract
+	questionCtr  question.Contract
+	wordpressCtr wordpress.Contract
 }
 
 func NewHandler(
 	articleCtr article.Contract,
 	questionCtr question.Contract,
+	wordpressCtr wordpress.Contract,
 ) http.Handler {
 	router := mux.NewRouter()
 
 	h := &handler{
-		router:      router,
-		articleCtr:  articleCtr,
-		questionCtr: questionCtr,
+		router:       router,
+		articleCtr:   articleCtr,
+		questionCtr:  questionCtr,
+		wordpressCtr: wordpressCtr,
 	}
 
 	// register routes

@@ -40,8 +40,9 @@ const (
 	WordPressPassword         Env = "WORDPRESS_PASSWORD"
 	WordPressAPICreateArticle Env = "WORDPRESS_API_CREATE_ARTICLE"
 	//WordPressAPICreateMedia   Env = "WORDPRESS_API_CREATE_MEDIA"
-	WordPressJobTime     Env = "WORDPRESS_JOB_TIME"
-	WordPressJobLocation Env = "WORDPRESS_JOB_LOCATION"
+	WordPressAPICategories Env = "WORDPRESS_API_LIST_CATEGORIES"
+	WordPressJobTime       Env = "WORDPRESS_JOB_TIME"
+	WordPressJobLocation   Env = "WORDPRESS_JOB_LOCATION"
 )
 
 type Psql struct {
