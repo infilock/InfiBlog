@@ -313,6 +313,102 @@
 					"body": "{\n    \"results\": [\n        {\n\"id\": \"1\",\n            \"question\": \"Unauthorized access to ICS devices: Blockchain can enable access control mechanisms that can allow only authorized personnel to access the system.\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"category_id\": \"5,6\",\n            \"tag_id\": \"1,16\",\n            \"status\": \"pending\",\n            \"created_at\": \"2023-11-23T09:53:41.479602Z\"\n        }\n    ]\n}"
 				}
 			]
+		},
+		{
+			"name": "Wordpress List Tag",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/wp/tags",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"wp",
+						"tags"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Wordpress List Tag",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/wp/tags",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"wp",
+								"tags"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 23,\n        \"name\": \"AI\"\n    },\n    {\n        \"id\": 15,\n        \"name\": \"application\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"blockchain\"\n    },\n    {\n        \"id\": 16,\n        \"name\": \"IIoT\"\n    },\n    {\n        \"id\": 26,\n        \"name\": \"industrial internet of things\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Wordpress List Category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/wp/categories",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"wp",
+						"categories"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Wordpress List Category",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{URL}}/wp/categories",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"wp",
+								"categories"
+							]
+						}
+					},
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json",
+							"name": "Content-Type",
+							"description": "",
+							"type": "text"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 5,\n        \"name\": \"Blockchain\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Cybersecurity\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"IIoT\"\n    },\n    {\n        \"id\": 4,\n        \"name\": \"IIoT, IoT and Blockchain News\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Industrial AI\"\n    },\n    {\n        \"id\": 1,\n        \"name\": \"Uncategorized\"\n    }\n]"
+				}
+			]
 		}
 	],
 	"event": [

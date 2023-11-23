@@ -1,11 +1,13 @@
 package wordpress
 
-type Categories struct {
+// Collection view categories and tags .
+type Collection struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
 
-type ResponsCategories struct {
+// ResponsCollection result categories and tags from api WordPress .
+type ResponsCollection struct {
 	Id            int           `json:"id"`
 	Count         int           `json:"count"`
 	Description   string        `json:"description"`
