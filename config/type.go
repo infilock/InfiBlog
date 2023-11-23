@@ -41,6 +41,7 @@ const (
 	WordPressAPICreateArticle Env = "WORDPRESS_API_CREATE_ARTICLE"
 	//WordPressAPICreateMedia   Env = "WORDPRESS_API_CREATE_MEDIA"
 	WordPressAPICategories Env = "WORDPRESS_API_LIST_CATEGORIES"
+	WordPressAPITag        Env = "WORDPRESS_API_LIST_TAG"
 	WordPressJobTime       Env = "WORDPRESS_JOB_TIME"
 	WordPressJobLocation   Env = "WORDPRESS_JOB_LOCATION"
 )
