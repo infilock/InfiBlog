@@ -11,6 +11,7 @@ import (
 
 	articleHndlr "github.com/infilock/InfiBlog/internal/rest/article"
 	questioneHndlr "github.com/infilock/InfiBlog/internal/rest/question"
+	wpHndlr "github.com/infilock/InfiBlog/internal/rest/wordpress"
 
 	//_ "github.com/joho/godotenv/autoload"
 	_ "github.com/lib/pq" // import postgres driver
@@ -47,8 +48,9 @@ func main() {
 	// define handler
 	artHnd := articleHndlr.NewHandler(articleSvc)
 	queHnd := questioneHndlr.NewHandler(questionSvc)
+	wpHnd := wpHndlr.NewHandler()
 
-	services := api.NewHandler(artHnd, queHnd)
+	services := api.NewHandler(artHnd, queHnd, wpHnd)
 
 	// A Server defines parameters for running an HTTP server. The zero value for Server is a valid configuration.
 	collectionServer := &http.Server{
