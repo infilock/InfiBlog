@@ -16,8 +16,7 @@ func (h *handler) HandlerUploadQuestion() http.HandlerFunc {
 			return
 		}
 
-		extension := filepath.Ext(fileHeader.Filename)
-		if extension != ".xlsx" {
+		if extension := filepath.Ext(fileHeader.Filename); extension != ".xlsx" {
 			res.Done(w, r, res.BadRequest("The file extension must .xlsx"))
 
 			return
@@ -26,8 +25,7 @@ func (h *handler) HandlerUploadQuestion() http.HandlerFunc {
 		tagID := r.URL.Query().Get("tag_id")
 		categoryID := r.URL.Query().Get("category_id")
 
-		errCreateQuestion := h.questionSvc.CreateQuestion(r.Context(), file, tagID, categoryID)
-		if errCreateQuestion != nil {
+		if errCreateQuestion := h.questionSvc.CreateQuestion(r.Context(), file, tagID, categoryID); errCreateQuestion != nil {
 			res.Done(w, r, res.InternalServerError(errCreateQuestion))
 
 			return

@@ -31,6 +31,7 @@ func main() {
 	}
 
 	database := config.ConnectionToPSQL(dbCfg)
+
 	if err != nil {
 		log.Fatal("unable to create database client: ", err)
 	}
@@ -51,7 +52,7 @@ func main() {
 
 	// A Server defines parameters for running an HTTP server. The zero value for Server is a valid configuration.
 	collectionServer := &http.Server{
-		Addr:         "4030",
+		Addr:         ":4030",
 		WriteTimeout: time.Second * 15, // riteTimeout is the maximum duration before timing out writes of the response.
 		ReadTimeout:  time.Second * 15, // eadTimeout is the maximum duration for reading the entire request, including the body.
 		IdleTimeout:  time.Second * 60, // dleTimeout is the maximum amount of time to wait for the next request when keep-alives are enabled.

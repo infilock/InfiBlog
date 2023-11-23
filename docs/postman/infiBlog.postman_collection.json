@@ -96,7 +96,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{URL}}/articles?status=publish",
+							"raw": "{{URL}}/articlesstatus=publish",
 							"host": [
 								"{{URL}}"
 							],
@@ -176,18 +176,12 @@
 					]
 				},
 				"url": {
-					"raw": "{{URL}}/questions?status=1",
+					"raw": "{{URL}}/questions",
 					"host": [
 						"{{URL}}"
 					],
 					"path": [
 						"questions"
-					],
-					"query": [
-						{
-							"key": "status",
-							"value": "1"
-						}
 					]
 				}
 			},
@@ -228,10 +222,10 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"results\": [\n        {\n            \"id\": \"4\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Blockchain can enable access control mechanisms\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"0\"\n        },\n        {\n            \"id\": \"5\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Unauthorized access to ICS devices\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"1\"\n        }\n    ]\n}"
+					"body": "{\n    \"results\": [\n        {\n\"id\": \"1\",\n            \"question\": \"Unauthorized access to ICS devices: Blockchain can enable access control mechanisms that can allow only authorized personnel to access the system.\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"category_id\": \"5,6\",\n            \"tag_id\": \"1,16\",\n            \"status\": \"pending\",\n            \"created_at\": \"2023-11-23T09:53:41.479602Z\"\n        },\n        {\n\"id\": \"2\",\n            \"question\": \"Unauthorized access to ICS devices: Blockchain can enable access control mechanisms that can allow only authorized personnel to access the system.\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"category_id\": \"5,6\",\n            \"tag_id\": \"1,16\",\n            \"status\": \"completed\",\n            \"created_at\": \"2023-11-23T09:53:41.479602Z\"\n        }\n    ]\n}"
 				},
 				{
-					"name": "List Question status 1",
+					"name": "List Question status completed",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -246,7 +240,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{URL}}/questions?status=1",
+							"raw": "{{URL}}/questions?status=completed",
 							"host": [
 								"{{URL}}"
 							],
@@ -256,7 +250,7 @@
 							"query": [
 								{
 									"key": "status",
-									"value": "1"
+									"value": "completed"
 								}
 							]
 						}
@@ -272,10 +266,10 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"results\": [\n        {\n            \"id\": \"4\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Blockchain can enable access control mechanisms\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"1\"\n        }\n    ]\n}"
+					"body": "{\n    \"results\": [\n        {\n\"id\": \"1\",\n            \"question\": \"Unauthorized access to ICS devices: Blockchain can enable access control mechanisms that can allow only authorized personnel to access the system.\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"category_id\": \"5,6\",\n            \"tag_id\": \"1,16\",\n            \"status\": \"completed\",\n            \"created_at\": \"2023-11-23T09:53:41.479602Z\"\n        }\n    ]\n}"
 				},
 				{
-					"name": "List Question status 0",
+					"name": "List Question status pending",
 					"originalRequest": {
 						"method": "GET",
 						"header": [],
@@ -290,7 +284,7 @@
 							]
 						},
 						"url": {
-							"raw": "{{URL}}/questions?status=0",
+							"raw": "{{URL}}/questions?status=pending",
 							"host": [
 								"{{URL}}"
 							],
@@ -300,7 +294,7 @@
 							"query": [
 								{
 									"key": "status",
-									"value": "0"
+									"value": "pending"
 								}
 							]
 						}
@@ -316,7 +310,7 @@
 						}
 					],
 					"cookie": [],
-					"body": "{\n    \"results\": [\n        {\n            \"id\": \"4\",\n            \"created_at\": \"2023-05-12T11:12:04.713429Z\",\n            \"question\": \"Blockchain can enable access control mechanisms\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"status\": \"0\"\n        }\n    ]\n}"
+					"body": "{\n    \"results\": [\n        {\n\"id\": \"1\",\n            \"question\": \"Unauthorized access to ICS devices: Blockchain can enable access control mechanisms that can allow only authorized personnel to access the system.\",\n            \"rule\": \"write a professional blog post with maximum 500 word, and a summary of the post for linkedin and twitter for the above topic and return the post with the below structure post title: write title here write the remaining article without subtitles linkedin post: write the summary here twitter post: write the summary here\",\n            \"category_id\": \"5,6\",\n            \"tag_id\": \"1,16\",\n            \"status\": \"pending\",\n            \"created_at\": \"2023-11-23T09:53:41.479602Z\"\n        }\n    ]\n}"
 				}
 			]
 		}

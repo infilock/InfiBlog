@@ -1,8 +1,4 @@
-
 -- +migrate Up
--- ALTER DEFAULT PRIVILEGES FOR ROLE chatgpt GRANT ALL ON TABLES TO PUBLIC;
--- ALTER DEFAULT PRIVILEGES FOR ROLE chatgpt GRANT ALL ON SEQUENCES TO PUBLIC;
-
 CREATE TABLE articles
 (
     id      SERIAL PRIMARY KEY,
@@ -14,5 +10,4 @@ CREATE TABLE articles
 );
 
 -- +migrate Down
-
 DROP TABLE articles;

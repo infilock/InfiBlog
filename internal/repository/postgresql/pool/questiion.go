@@ -9,9 +9,9 @@ import (
 )
 
 const (
-	queryListQuestion         = `SELECT question,status,category_id,tag_id,created_at FROM questions`
+	queryListQuestion         = `SELECT id,question,rule,category_id,tag_id,status,created_at FROM questions`
 	queryListQuestionStatus   = `SELECT id,question,rule,category_id,tag_id,status,created_at FROM questions WHERE status=$1`
-	queryUpdateQuestionStatus = `UPDATE questions SET status=1 WHERE id=$1`
+	queryUpdateQuestionStatus = `UPDATE questions SET status='completed' WHERE id=$1`
 	queryInsertQuestion       = `INSERT INTO questions (question,rule,category_id,tag_id,created_at) VALUES ($1,$2,$3,$4,$5)`
 	queryFindQuestion         = `SELECT id,question,rule,category_id,tag_id,status,created_at FROM questions WHERE id=$1`
 )
