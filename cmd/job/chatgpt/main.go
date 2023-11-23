@@ -44,7 +44,7 @@ func main() {
 		ra := pool.NewArticleRepository(database)
 		rsm := pool.NewSocialMediaRepository(database)
 
-		res, errStatus := rq.ListStatus(context.Background(), "0")
+		res, errStatus := rq.ListStatus(context.Background(), "pending")
 		if errStatus != nil {
 			log.Fatal(errStatus)
 		}
