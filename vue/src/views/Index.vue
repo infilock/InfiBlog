@@ -21,62 +21,64 @@
       </div>
       <div class="pt-6 pb-8">
         <p class="font-bold text-base mb-2">Tag</p>
-        <Multiselect v-model="value" mode="tags" placeholder="Select employees" track-by="name" label="name"
-        :close-on-select="false" :searchable="true" :options="[
-          { value: 'judy', name: 'Judy' },
-          { value: 'jane', name: 'Jane' },
-          { value: 'john', name: 'John' },
-          { value: 'joe', name: 'Joe' }
-        ]">
-        <template v-slot:tag="{ option, handleTagRemove, disabled }">
-          <div class="multiselect-tag is-user" :class="{
-            'is-disabled': disabled
-          }">
-            <img :src="option.image">
-            {{ option.name }}
-            <span v-if="!disabled" class="multiselect-tag-remove" @click="handleTagRemove(option, $event)">
-              <span class="multiselect-tag-remove-icon"></span>
-            </span>
-          </div>
-        </template>
-      </Multiselect>
+        <Multiselect v-model="tag_id" mode="tags" placeholder="Select employees" track-by="name" label="name"
+          :close-on-select="false" :searchable="true" :options="[
+            { value: 23, name: 'AI' },
+            { value: 15, name: 'application' },
+            { value: 14, name: 'blockchain' },
+            { value: 16, name: 'IIoT' },
+            { value: 26, name: 'industrial internet of things' },
+          ]">
+          <template v-slot:tag="{ option, handleTagRemove, disabled }">
+            <div class="multiselect-tag is-user" :class="{
+              'is-disabled': disabled
+            }">
+              <img :src="option.image">
+              {{ option.name }}
+              <span v-if="!disabled" class="multiselect-tag-remove" @click="handleTagRemove(option, $event)">
+                <span class="multiselect-tag-remove-icon"></span>
+              </span>
+            </div>
+          </template>
+        </Multiselect>
         <p class="font-bold text-base mb-2 mt-6">Category</p>
-        <Multiselect v-model="value" mode="tags" placeholder="Select employees" track-by="name" label="name"
-        :close-on-select="false" :searchable="true" :options="[
-          { value: 'judy', name: 'Judy' },
-          { value: 'jane', name: 'Jane' },
-          { value: 'john', name: 'John' },
-          { value: 'joe', name: 'Joe' }
-        ]">
-        <template v-slot:tag="{ option, handleTagRemove, disabled }">
-          <div class="multiselect-tag is-user" :class="{
-            'is-disabled': disabled
-          }">
-            <img :src="option.image">
-            {{ option.name }}
-            <span v-if="!disabled" class="multiselect-tag-remove" @click="handleTagRemove(option, $event)">
-              <span class="multiselect-tag-remove-icon"></span>
-            </span>
-          </div>
-        </template>
-      </Multiselect>
+        <Multiselect v-model="category_id" mode="tags" placeholder="Select employees" track-by="name" label="name"
+          :close-on-select="false" :searchable="true" :options="[
+            {value: 5,name: 'Blockchain',},
+            {value: 6,name: 'Cybersecurity',},
+            {value: 2,name: 'IIoT',},
+            {value: 4,name: 'IIoT, IoT and Blockchain News',},
+            {value: 3,name: 'Industrial AI',},
+            {value: 1,name: 'Uncategorized',},
+            ]">
+          <template v-slot:tag="{ option, handleTagRemove, disabled }">
+            <div class="multiselect-tag is-user" :class="{
+              'is-disabled': disabled
+            }">
+              <img :src="option.image">
+              {{ option.name }}
+              <span v-if="!disabled" class="multiselect-tag-remove" @click="handleTagRemove(option, $event)">
+                <span class="multiselect-tag-remove-icon"></span>
+              </span>
+            </div>
+          </template>
+        </Multiselect>
       </div>
 
       <div class="flex justify-end gap-4 max-md:flex-col-reverse">
         <button
-          class="max-md:w-full bg-transparent border-blackBg70 border transition-all duration-300 hover:shadow-lg hover:bg-primary hover:text-white hover:border-primary rounded-lg text-lg py-2 px-[42px]"
-          @click="cancel()">Cancel</button>
+          class="max-md:w-full bg-transparent border-blackBg70 border transition-all duration-300 hover:shadow-lg hover:bg-primary hover:text-white hover:border-primary rounded-lg text-lg py-2 px-[42px]">Cancel</button>
         <!-- :disabled="v$.$invalid || v$.$errors.length || loadingTwo || loading" :isLoading="loading" -->
         <button
           class="max-md:w-full bg-primary transition-all duration-300 hover:shadow-lg rounded-lg text-white text-lg py-2 px-[42px]"
-          @click="submit()">Submit</button>
+          @click="uploadQuestion()">Submit</button>
       </div>
     </div>
   </div>
 </template>
 <script setup>
 import Multiselect from '@vueform/multiselect'
-
+import axios from 'axios'
 import { ref, reactive } from 'vue';
 const value = ref(null)
 const options = ref([
@@ -84,9 +86,11 @@ const options = ref([
   'Robin',
   'Joker',
 ])
+let tag_id = ref([]);
+let category_id = ref([]);
+
 let files = ref([]);
 let file = ref(null);
-let tempAttachmentName = ref(null);
 
 const formData = reactive({
   title: "",
@@ -102,8 +106,22 @@ const onChange = () => {
   }
 };
 
+const uploadQuestion = () => {
+  const file = new FormData();
+  if (files.value[0]) {
+    let tempFiles = files.value;
+    file.append("file", tempFiles[0]);
+  }
 
-
-
+  axios.post(`/question?tag_id=${tag_id.value}&category_id=${category_id.value}`, file)
+    .then((response) => {
+      // console.log(response);
+      alert('DONE')
+    })
+    .catch((error) => {
+      // console.log(error);
+      alert('ERROR')
+    });
+};
 </script>
 <style src="@vueform/multiselect/themes/default.css"></style>
