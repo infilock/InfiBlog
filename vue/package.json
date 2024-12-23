@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@vueform/multiselect": "^2.6.6",
-    "axios": "^1.6.2",
+    "axios": "^1.7.4",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
