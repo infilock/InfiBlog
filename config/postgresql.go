@@ -22,7 +22,7 @@ func GetDBConfig() (*Psql, error) {
 		Host:   "127.0.0.1",
 		Port:   "5432",
 		User:   "infiblog",
-		Pass:   "infiblogpw",
+		Pass:   "*********",
 		Name:   "infiblogdb",
 	}, nil
 }
